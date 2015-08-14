@@ -1,0 +1,26 @@
+def take1g4(pt):
+   less = pt/100
+   more = pt + 1000
+   return less, more
+
+poem = """
+\tThe lovely world
+with logic so firmly planted
+cannot discern \n the needs of love
+nor comprehend passion from intuition
+and requires an explanation
+\n\t\twhere there is none.
+"""
+
+print "--------------"
+print poem
+print "--------------"
+
+
+kam, jyada = take1g4(1000)
+print "%d %r" %(kam,jyada)
+
+print "instead of kam,jyada = return val ,try \'%d %d '/ value be func direct "
+
+print "%d %r" %take1g4(100)
+
