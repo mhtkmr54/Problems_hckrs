@@ -1,0 +1,9 @@
+def take1g4(pt):
+   less = pt/100
+   more = pt + 1000
+   return less, more
+
+kam, jyada = take1g4(1000)
+print "%d %r" %(kam,j
+
+
