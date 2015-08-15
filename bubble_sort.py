@@ -3,8 +3,6 @@ import random
 random_items = [random.randint(-50, 100) for c in range(32)]
 
 
-
-
 def bubble_sort(items):
     """ Implementation of bubble sort """
     for i in range(len(items)):
