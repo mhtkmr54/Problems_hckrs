@@ -21,27 +21,23 @@ def partition(lst, start, end):
             pIndex += 1
 
     lst[pIndex],lst[end] = lst[end],lst[pIndex]
-    print "",lst 
+    out = map(str, lst)
+    
+    print  " ".join(out) 
                                           
     return pIndex
 
 
 def main():
-  n = int(raw_input())
-  if n == 7:
-    inp = raw_input('Enter input: ')
-    ints = map(int, inp.split(' '))
+  raw_input()
+  ints = map(int, raw_input().split(' '))
+  
+  quicksort( ints )
+  
 
-    return ints
-  else:
-    print "enter again"
-    main()
+  return ints
+  
 
-intsa = main()
-
-print 'Before: ', intsa
-quicksort( intsa )
-print 'After : ', intsa
 
 if __name__ == '__main__':
     main()
