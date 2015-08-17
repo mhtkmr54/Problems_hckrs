@@ -34,6 +34,7 @@ def main():
         grid = []
         for k in xrange(R):
             grid.append(raw_input().strip())
+            print " ",grid
         r, c = map(int, raw_input().strip().split())
         pattern = []
         for k in xrange(r):
