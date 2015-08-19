@@ -1,0 +1,14 @@
+n = raw_input()
+for i in xrange(n):
+  r,c = map(int,raw_input.strip().split())
+  d = []
+  for  i in xrange(r):
+    matrix = d.append(raw_input.strip().split())
+K = raw_input
+
+for i in xrange(r):
+  for j in xrange(c):
+   if matrix[i][j] == 'M'he = (i, j)
+			elif matrix[i][j] == '*':
+				fe = (i, j) 
+

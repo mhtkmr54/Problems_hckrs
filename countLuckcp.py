@@ -38,6 +38,7 @@ for _ in xrange(int(raw_input())):
 	matrix = []
 	for i in xrange(N):
 		matrix.append(raw_input())
+                print matrix
 	K = int(raw_input())
 
 	fe, he = (0, 0), (0, 0)
