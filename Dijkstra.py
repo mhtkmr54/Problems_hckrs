@@ -2,19 +2,35 @@ from collections import defaultdict
 from heapq import *
 
 def dijkstra(edges, f, t):
+    print "Staaart",f
+    print "to get to",t
     g = defaultdict(list)
+    print "deaffffffffffffffffffffffffault dict createdddddddddddddd"
+    print g
     for l,r,c in edges:
         g[l].append((c,r))
-
+        print "/////////////appending in default dict///////////////////////"
+        print g.items()
+    print "///////////////final dict///////////////",g.items()
     q, seen = [(0,f,())], set()
     while q:
-        (cost,v1,path) = heappop(q)
-        if v1 not in seen:
+         print "++++++++++++++++++=before pop+++++++++++++++++++++++=",q
+         (cost,v1,path) = heappop(q)
+         print "-----------------------------------------------after pop------------------",q
+         print "////////////COst:///////////////",cost
+         print  "////////////////v1////////////:",v1
+         print "///////////////////////////////path///++++++++++:",path
+         if v1 not in seen:
             seen.add(v1)
+            print "add unvisited nodes",v1
+               
+            print "//////////////before path",path
             path = (v1, path)
+            print "/////////////////////after path",path
             if v1 == t: return (cost, path)
-
+            print "////////////////g.get(v1/A,())////////////////////",g.get(v1,())
             for c, v2 in g.get(v1, ()):
+                print "addddddddditional cooooooooooooooooooost",c
                 if v2 not in seen:
                     heappush(q, (cost+c, v2, path))
 
@@ -39,5 +55,5 @@ if __name__ == "__main__":
     print edges
     print "A -> E:"
     print dijkstra(edges, "A", "E")
-    print "F -> G:"
-    print dijkstra(edges, "F", "G")
+    print "A -> G:"
+    print dijkstra(edges, "A", "G")
