@@ -1,5 +1,7 @@
 from collections import defaultdict
 from heapq import *
+from collections import OrderedDict
+from operator import itemgetter
 
 def dijkstra(edges, f, t):
     print "Staaart",f
@@ -13,6 +15,7 @@ def dijkstra(edges, f, t):
         print g.items()
     print "///////////////final dict///////////////",g.items()
     q, seen = [(0,f,())], set()
+    visited = {}
     while q:
          print "++++++++++++++++++=before pop+++++++++++++++++++++++=",q
          (cost,v1,path) = heappop(q)
@@ -22,6 +25,9 @@ def dijkstra(edges, f, t):
          print "///////////////////////////////path///++++++++++:",path
          if v1 not in seen:
             seen.add(v1)
+            visited[v1] = cost
+            d = OrderedDict(sorted(visited.items(), key=itemgetter(1)))
+            print d
             print "add unvisited nodes",v1
                
             print "//////////////before path",path
