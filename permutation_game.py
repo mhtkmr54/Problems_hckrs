@@ -1,5 +1,6 @@
 
 def is_increasing(p):
+    print all(p[i] < p[i + 1] for i in range(len(p) - 1))
     return all(p[i] < p[i + 1] for i in range(len(p) - 1))
 
 def remove(p, i):
