@@ -7,7 +7,9 @@ def bubble_sort(items):
     """ Implementation of bubble sort """
     for i in range(len(items)):
        print "setting index"
+      
        for j in range (len(items)-1-i):
+        #note that coz of j+1 len(items)-iiiii(already if sorted bitch)-111111
          if  items[j]>items[j+1]:
           print "swapping....."
           items[j],items[j+1] = items[j+1],items[j] #Swap!!
@@ -17,3 +19,4 @@ def bubble_sort(items):
 print 'Before: ', random_items
 bubble_sort(random_items)
 print 'After : ', random_items
+#o(nsquare)
