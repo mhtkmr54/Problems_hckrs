@@ -1,0 +1,18 @@
+import numpy
+
+M = 0
+print "Enter the number of positive integer"
+M = int(raw_input(">"))
+
+print "Enter the  positive integers one by one"
+
+arr=[]
+
+
+for i in xrange(M):
+   arr.append(int(raw_input(">>")))
+
+
+for x in arr:
+  comp =  [int(i) for i in str(x)]
+    

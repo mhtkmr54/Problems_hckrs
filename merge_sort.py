@@ -59,7 +59,7 @@ def mergeSort(alist):
 
 
 
-it = [random.randint(-30,12) for c in range(4)]
+it = [random.randint(0,100) for c in range(5)]
 print "before:",it
 mergeSort(it)
 print "new :",it
