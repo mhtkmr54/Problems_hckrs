@@ -1,5 +1,3 @@
-
-
 M = 0
 print "Enter the number of positive integer"
 M = int(raw_input(">"))
@@ -57,9 +55,13 @@ def mergeSort(alist):
             j=j+1
             k=k+1
 
+def main():
+  print "BEFORE SORTING THE ARRAY IS:",a
+  mergeSort(a)
+  print "AFTER SORTING THE ARRAY IS:",a
+  print "THE LEAST NUMBER is:"
+  print "".join(a)
 
-print "BEFORE SORTING THE ARRAY IS:",a
-mergeSort(a)
-print "AFTER SORTING THE ARRAY IS:",a
-print "THE LEAST NUMBER is:"
-print "".join(a)
+if __name__ == "__main__":
+    import cProfile
+    cProfile.run("main()")
