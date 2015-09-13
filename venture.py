@@ -1,5 +1,5 @@
-import random
-"""
+
+
 M = 0
 print "Enter the number of positive integer"
 M = int(raw_input(">"))
@@ -12,7 +12,7 @@ a=[]
 for i in xrange(M):
    a.append(raw_input(">>"))
 
-"""
+
 
 def bubble_sort(a):
  for i in range(len(a)-1):
@@ -24,11 +24,11 @@ def bubble_sort(a):
 
 def mergeSort(alist):
     if len(alist)>1:
-        print "splitting array",alist
         #splitting the array
         mid = len(alist)//2  #the floor div
         lefthalf = alist[:mid]
         righthalf = alist[mid:]
+
         mergeSort(lefthalf)  #the recursive call after splitting
         mergeSort(righthalf) #the recursive call after splitting
       
@@ -38,7 +38,8 @@ def mergeSort(alist):
          
 
         while i < len(lefthalf) and j < len(righthalf):
-            if  int(lefthalf[i])*10**len(righthalf[j])+int(righthalf[j]) < int(righthalf[j])*10**len(lefthalf[i])+int(lefthalf[j]): #custom comparison
+
+            if  int(lefthalf[i])*10**len(righthalf[j])+int(righthalf[j]) < int(righthalf[j])*10**len(lefthalf[i])+int(lefthalf[i]): #custom comparison
                 alist[k]=lefthalf[i]
                 i=i+1
             else:
@@ -55,11 +56,10 @@ def mergeSort(alist):
             alist[k]=righthalf[j]
             j=j+1
             k=k+1
-        print "merging array",alist
 
-a = [random.randint(0,100) for c in range(8)]
-print "before:",a
-b = map(str,a)
-mergeSort(b)
-print "new :",b
 
+print "BEFORE SORTING THE ARRAY IS:",a
+mergeSort(a)
+print "AFTER SORTING THE ARRAY IS:",a
+print "THE LEAST NUMBER is:"
+print "".join(a)
