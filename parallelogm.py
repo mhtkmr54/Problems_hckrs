@@ -1,13 +1,10 @@
 import sys,re
 p = []
 
-
-
 def check_para(coords):
    for i in  coords:
      z = map(int,i)
      p.append(z)
-     print p
    count = 0 
    ac = [p[2][0]-p[0][0],p[2][1]-p[0][1]]
    bd = [p[3][0]-p[1][0],p[3][1]-p[1][1]]
@@ -38,21 +35,20 @@ def check_para(coords):
 
         
    else:
-        print "no parallelogram exists"
+        print "The coordinates do not form the vertices of a parallelogram"
 
 
 
 
 
 def main():
+    print "your input format -- (0,0), (0,1), (1,0), (1,1)"
     tc=raw_input(">>")
     r = re.compile(r"([0-9,]+[0-9])+")
     coord = re.findall(r,tc)
     coords = []
     for i in coord:
-         print i
          coords.append(i.split(","))
-    print coords
     check_para(coords)
 
 if __name__ == "__main__":
