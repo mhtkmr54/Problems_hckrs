@@ -14,6 +14,7 @@ def check_para(coords):
    ad = [p[3][0]-p[0][0],p[3][1]-p[0][1]]
    bc = [p[2][0]-p[1][0],p[2][1]-p[1][1]]
    cb =  map(lambda x: x * -1, bc)
+   dc =  map(lambda x: x * -1, cd)
 
   # 3 cases if parallelogram can be picked up out of the plane and turned over
 
