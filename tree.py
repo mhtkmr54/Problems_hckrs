@@ -37,10 +37,9 @@ def dfs(t, v, w, root):
             else:
                 print "left child is there,So append curr to val stack"
                 val_stack.append(curr)
-
                 print "val_stack////////AFTER APPENDING CURR////////////////",val_stack
             visit_stack.extend(left_childs)
-            print "after extending value stack",visit_stack
+            print "after extending VISIT stack",visit_stack
     for curr in reversed(val_stack):
         w[curr-1] = v[curr-1] + sum([w[i-1] for i in t[curr]])
 
