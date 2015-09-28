@@ -1,0 +1,17 @@
+def main():
+    T = input()
+    for i in xrange(T):        R, C = map(int, raw_input().strip().split())
+        N = R * C
+        grid = []
+        for k in xrange(R):
+            grid.append(raw_input().strip())
+            print " ",grid
+        r, c = map(int, raw_input().strip().split())
+        pattern = []
+        for k in xrange(r):
+            pattern.append(raw_input().strip())
+        find_pattern(grid, pattern)
+
+if __name__ == '__main__':
+    main()
+

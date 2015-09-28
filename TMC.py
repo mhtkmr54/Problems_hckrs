@@ -12,32 +12,69 @@ def getcost(X,U,cost):
      wrong[k] += 1
    for z in U:
      right[z] += 1
-   print wrong
-   print right
+   #print wrong
+   #print right
    glt = OrderedDict(sorted(wrong.items()))
    shi = OrderedDict(sorted(right.items()))
-   #del sorted_city_pop[sorted_city_pop.keys()[1]]
+   #print glt
+   #print shi
+   #print cost
    if  len(glt) < len(shi):
+      #print "len(glt) < len(shi):"
       for p in xrange(len(shi)-len(glt),len(shi)):
           sumg += right.values()[p]
           sumc = sumg*cost[1]
       for lefti in xrange(0,len(shi)-len(glt)):
           if shi.keys()[lefti] == glt.keys()[lefti] and shi.values()[lefti]-glt.values()[lefti] > 0:
-                sumc  = sumc + abs(shi.values()[lefti]-glt.values()[lefti])*cost[1]   
+                sumc  = sumc + abs(shi.values()[lefti]-glt.values()[lefti])*cost[1]
+                print sumc   
           elif shi.keys()[lefti] == glt.keys()[lefti] and shi.values()[lefti]-glt.values()[lefti] < 0:
                 sumc = sumc + abs(shi.values()[lefti]-glt.values()[lefti])*cost[0]
+                print sumc
           elif shi.keys()[lefti] != glt.keys()[lefti]:
                 kons =  glt.values()[lefti] - shi.values()[lefti]
                 if kons < 0:
                    sumc = sumc + abs(kons)*cost[1] + glt.values()[lefti]*cost[2]
                 else:
                    sumc = sumc + abs(kons)*cost[0] + shi.values()[lefti]*cost[2]
+                   print sumc
 
-   else:
+   elif len(glt) > len(shi):
+      #print "len(glt) > len(shi):"
       for p in xrange(len(glt)-len(shi),len(glt)):
           sumg += glt.values()[p]
-          sumc = sum*cost[1]
-
+          sumc = sumg*cost[0]
+      for lefti in xrange(0,len(shi)-len(glt)):
+          if shi.keys()[lefti] == glt.keys()[lefti] and shi.values()[lefti]-glt.values()[lefti] > 0:
+                sumc  = sumc + abs(shi.values()[lefti]-glt.values()[lefti])*cost[1]
+                print sumc
+          elif shi.keys()[lefti] == glt.keys()[lefti] and shi.values()[lefti]-glt.values()[lefti] < 0:
+                sumc = sumc + abs(shi.values()[lefti]-glt.values()[lefti])*cost[0]
+                print sumc
+          elif shi.keys()[lefti] != glt.keys()[lefti]:
+                kons =  glt.values()[lefti] - shi.values()[lefti]
+                if kons < 0:
+                   sumc = sumc + abs(kons)*cost[1] + glt.values()[lefti]*cost[2]
+                else:
+                   sumc = sumc + abs(kons)*cost[0] + shi.values()[lefti]*cost[2]
+                   print sumc
+                  
+   elif len(glt) == len(shi):
+      for lefti in xrange(0,len(shi)):
+          #print "lllllleft i",lefti
+          if shi.keys()[lefti] == glt.keys()[lefti] and shi.values()[lefti]-glt.values()[lefti] > 0:
+                sumc  = sumc + abs(shi.values()[lefti]-glt.values()[lefti])*cost[1]
+                print sumc
+          elif shi.keys()[lefti] == glt.keys()[lefti] and shi.values()[lefti]-glt.values()[lefti] < 0:
+                sumc = sumc + abs(shi.values()[lefti]-glt.values()[lefti])*cost[0]
+                print sumc
+          elif shi.keys()[lefti] != glt.keys()[lefti]:
+                kons =  glt.values()[lefti] - shi.values()[lefti]
+                if kons < 0:
+                   sumc = sumc + abs(kons)*cost[1] + glt.values()[lefti]*cost[2]
+                else:
+                   sumc = sumc + abs(kons)*cost[0] + shi.values()[lefti]*cost[2]
+                   print sumc
 
 def main():
     T = input()
@@ -51,4 +88,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
