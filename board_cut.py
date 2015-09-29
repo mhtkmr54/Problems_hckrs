@@ -60,7 +60,7 @@ def genmain(s,h,v):
        k = osiri.items()[pointer]
        poper(k,X,Y,sumc,cnth,cntv)
 
-    print "maaaaaaiiiin",sumc
+    print "maaaaaaiiiin",jackass
   
 sumc = 0 
 cntv = 0

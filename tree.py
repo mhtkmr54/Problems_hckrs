@@ -64,5 +64,5 @@ if __name__ == '__main__':
     v = map(int, raw_input().split())
     print v
     edge = [map(int, raw_input().split()) for i in range(n-1)]
-    print edge
+    print "eeeeeeeeeeeeedge",edge
     print minimun_tree_diff(v, edge)
