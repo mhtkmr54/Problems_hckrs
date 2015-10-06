@@ -1,0 +1,1 @@
+def_binary_search(self,key):33"""Binarysearchforthegivenkeyinthesortedarray."""34low,high=0,len(self.data)-135whilelow<=high:36mid=(low+high)//237mid_key=self.data[mid]38ifkey<mid_key:39high=mid-140elifkey>mid_key:41low=mid+142else:43returnmid44returnhigh+1

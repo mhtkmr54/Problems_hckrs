@@ -1,4 +1,4 @@
- def radixsort( aList ):
+def radixsort( aList ):
   RADIX = 10
   maxLength = False
   tmp , placement = -1, 1
@@ -25,3 +25,14 @@
  
     # move to next digit
     placement *= RADIX
+
+def rad( a ):
+ k = []
+ for i in a:
+  print a[i]j[1]
+  
+
+
+q = [1,200,3000,55,99,3]
+radixsort(q)
+print q
