@@ -13,7 +13,7 @@ def mah_sort(items):
     temp = items[i]
     j=i
     while j>0 and items[j-1] > temp:
-      items[j] = items[j-1]
+			      items[j] = items[j-1]
       j -= 1
     items[j] = temp
 
