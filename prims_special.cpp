@@ -1,5 +1,3 @@
-
-//Krushkal's algo
 using namespace std;
 
 #include<bits/stdc++.h>
@@ -77,35 +75,53 @@ int main()
         cin>>ini;
 
         int node=ini;
+        cout << "node = cin = ini start " << node<< "\n";
         dist[node]=0;
         vis[node]=1;
-
+        cout<< "dist ..outside while. " << dist[0] << " " <<dist[1] << " " <<dist[2] << " " << dist[3] << " " << dist[4]<<" "<< dist[5]<< "\n";
         while(1)
         {
 
 
             fl(i,0,n-1)
             {
+                cout << "------------------------------------------NEW I-----------------------";
                 int this_dist=INT_MAX;
                 //Find the node with the minimum distance
                 fl(j,1,n+1)
                 {
+                cout << "Find the node with the minimum di.... Checking...If,,,"<< " " << "i " << " " << i << " " <<"j " << j<< "\n";
+                cout << "d1 above IFFFF. to find min dist " << dist[0] << " " <<dist[1] << " " <<dist[2] << " " << dist[3] << " " << dist[4]<< " "<< dist[5]<< "\n";
                     if(!vis[j] && dist[j]<this_dist)
                     {
+                        cout << "inside if when " << "node" << j << "unvisited and dist[nownode] is lesser"<< "\n";
                         this_dist=dist[j];
                         node=j;
+                        cout << "node thus selected the index of dist that gives min d" << " " << "\n";
+
                     }
                 }
 
                 //mark this node as visited
+         cout<< "mark this " << node << "as visited after if block " << dist[0] << " " <<dist[1] << " " <<dist[2] << " " << dist[3] << " " << dist[4]<<" "<< dist[5]<< "\n";
+
                 vis[node]=1;
                 int limit=adj[node].SZ();
+                cout << "limit size of adj[node]" << limit << "where node is marked one" << "\n";
 
                 fl(j,0,limit)
                 {
+                  cout << "inside the limit loop " << "\n";
+                  cout << "node " << node << " j " << j << "\n";
+                  cout << "adj[node].j"<<" " << adj[node][j] << "\n";
+
+
                     if(!vis[adj[node][j]] && mat[node][adj[node][j]]<dist[adj[node][j]])
                     {
+                        cout << "INside IF condn that adj[node][j] notvisited " << " " << adj[node][j] << " mat[node][adj[node][j]] < dist[adj[node][j]] --->" << " : "<< mat[node][adj[node][j]] << " < " << dist[adj[node][j]] << "\n";
                         dist[adj[node][j]]=mat[node][adj[node][j]];
+                        cout<< "updating the dist array" << dist[0] << " " <<dist[1] << " " <<dist[2] << " " << dist[3] << " " << dist[4]<< " "<< dist[5]<< "\n";
+                        cout << "setting parent node --> ob expressu --->parent[adj[node][j]]=node;";
                         parent[adj[node][j]]=node;
                     }
                 }
