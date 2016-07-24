@@ -1,11 +1,11 @@
-#!/usr/bin/env python
+    #!/usr/bin/env python
 
 class BSTNode(object):
     """A node in the vanilla BST tree."""
-    
+
     def __init__(self, parent, k):
         """Creates a node.
-        
+
         Args:
             parent: The node's parent.
             k: key of the node.
@@ -14,7 +14,7 @@ class BSTNode(object):
         self.parent = parent
         self.left = None
         self.right = None
-  
+
     def _str(self):
         """Internal method for ASCII art."""
         label = str(self.key)
@@ -50,12 +50,12 @@ class BSTNode(object):
         return '\n'.join(self._str()[0])
 
     def find(self, k):
-        """Finds and returns the node with key k from the subtree rooted at this 
+        """Finds and returns the node with key k from the subtree rooted at this
         node.
-        
+
         Args:
             k: The key of the node we want to find.
-        
+
         Returns:
             The node with key k.
         """
@@ -67,15 +67,15 @@ class BSTNode(object):
             else:
                 return self.left.find(k)
         else:
-            if self.right is None:  
+            if self.right is None:
                 return None
             else:
                 return self.right.find(k)
-    
+
     def find_min(self):
-        """Finds the node with the minimum key in the subtree rooted at this 
+        """Finds the node with the minimum key in the subtree rooted at this
         node.
-        
+
         Returns:
             The node with the minimum key.
         """
@@ -83,7 +83,7 @@ class BSTNode(object):
         while current.left is not None:
             current = current.left
         return current
-       
+
     def next_larger(self):
         """Returns the node with the next larger key (the successor) in the BST.
         """
@@ -96,7 +96,7 @@ class BSTNode(object):
 
     def insert(self, node):
         """Inserts a node into the subtree rooted at this node.
-        
+
         Args:
             node: The node to be inserted.
         """
@@ -117,7 +117,7 @@ class BSTNode(object):
                 self.right = node
             else:
                 self.right.insert(node)
-  
+
     def delete(self):
         """Deletes and returns this node from the BST."""
         if self.left is None or self.right is None:
@@ -134,10 +134,10 @@ class BSTNode(object):
             s = self.next_larger()
             self.key, s.key = s.key, self.key
             return s.delete()
-    
+
     def check_ri(self):
         """Checks the BST representation invariant around this node.
-    
+
         Raises an exception if the RI is violated.
         """
         if self.left is not None:
@@ -156,23 +156,23 @@ class BSTNode(object):
             self.right.check_ri()
 
 class MinBSTNode(BSTNode):
-    """A BSTNode which is augmented to keep track of the node with the 
+    """A BSTNode which is augmented to keep track of the node with the
     minimum key in the subtree rooted at this node.
     """
     def __init__(self, parent, key):
         """Creates a node.
-        
+
         Args:
             parent: The node's parent.
             k: key of the node.
         """
         super(MinBSTNode, self).__init__(parent, key)
         self.min = self
-  
+
     def find_min(self):
-        """Finds the node with the minimum key in the subtree rooted at this 
+        """Finds the node with the minimum key in the subtree rooted at this
         node.
-        
+
         Returns:
             The node with the minimum key.
         """
@@ -180,7 +180,7 @@ class MinBSTNode(BSTNode):
 
     def insert(self, node):
         """Inserts a node into the subtree rooted at this node.
-        
+
         Args:
             node: The node to be inserted.
         """
@@ -202,10 +202,10 @@ class MinBSTNode(BSTNode):
                 self.right = node
             else:
                 self.right.insert(node)
-  
+
     def delete(self):
         """Deletes this node itself.
-        
+
         Returns:
             This node.
         """
@@ -215,7 +215,7 @@ class MinBSTNode(BSTNode):
                 if self.parent.left is not None:
                     self.parent.left.parent = self.parent
                     self.parent.min = self.parent.left.min
-                else: 
+                else:
                     self.parent.min = self.parent
                 # Propagates the changes upwards.
                 c  = self.parent
@@ -236,42 +236,42 @@ class BST(object):
     """A binary search tree."""
     def __init__(self, klass = BSTNode):
         """Creates an empty BST.
-        
+
         Args:
-            klass (optional): The class of the node in the BST. Default to 
+            klass (optional): The class of the node in the BST. Default to
                 BSTNode.
         """
         self.root = None
         self.klass = klass
-        
+
     def __str__(self):
         if self.root is None: return '<empty tree>'
         print "__inide str__ ret <empty>"
         return str(self.root)
 
     def find(self, k):
-        """Finds and returns the node with key k from the subtree rooted at this 
+        """Finds and returns the node with key k from the subtree rooted at this
         node.
-        
+
         Args:
             k: The key of the node we want to find.
-        
+
         Returns:
             The node with key k or None if the tree is empty.
         """
         return self.root and self.root.find(k)
-                
+
     def find_min(self):
         """Returns the minimum node of this BST."""
-        
+
         return self.root and self.root.find_min()
-    
+
     def insert(self, k):
         """Inserts a node with key k into the subtree rooted at this node.
-        
+
         Args:
             k: The key of the node to be inserted.
-            
+
         Returns:
             The node inserted.
         """
@@ -284,13 +284,13 @@ class BST(object):
         else:
             self.root.insert(node)
         return node
-            
+
     def delete(self, k):
         """Deletes and returns a node with key k if it exists from the BST.
-        
+
         Args:
             k: The key of the node that we want to delete.
-            
+
         Returns:
             The deleted node with key k.
         """
@@ -307,33 +307,33 @@ class BST(object):
                 self.root.parent = None
             return deleted
         else:
-            return node.delete()   
-        
+            return node.delete()
+
     def next_larger(self, k):
         """Returns the node that contains the next larger (the successor) key in
         the BST in relation to the node with key k.
-        
+
         Args:
             k: The key of the node of which the successor is to be found.
-            
+
         Returns:
             The successor node.
         """
         node = self.find(k)
         return node and node.next_larger()
-    
+
     def check_ri(self):
         """Checks the BST representation invariant.
-        
+
         Raises:
             An exception if the RI is violated.
         """
         if self.root is not None:
             if self.root.parent is not None:
-                raise RuntimeError("BST RI violated by the root node's parent " 
+                raise RuntimeError("BST RI violated by the root node's parent "
                                    "pointer.")
             self.root.check_ri()
-    
+
 
 class MinBST(BST):
     """An augmented BST that keeps track of the node with the minimum key."""
