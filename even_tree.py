@@ -14,13 +14,19 @@ class Node(object):
         self.children.append(obj)
 
 def goNode(genode):
-    print genode.data
+    print "genode.data ---> ", genode.data
     visited.append(genode.data)
     for child in g.get(genode.data,[]):
+        print child
+    for child in g.get(genode.data,[]):
         if child not in visited:
+            print "sucessful child addn -->", child
             Nodechild = Node(child)
             genode.add_child(Nodechild)
-            goNode(Nodechild)
+    print "out of for"
+    for childa in genode.children:
+        print "genode.children data --> " , childa.data
+        goNode(childa)
 
     #for child in g.get(genode.data):
 
@@ -38,7 +44,9 @@ def main():
      #   print child
     root = Node(1)
     goNode(root)
-    for c in root.children:
+    testNode = Node(8)
+    print "FL"
+    for c in testNode.children:
         print "C data"
         print c.data
 
