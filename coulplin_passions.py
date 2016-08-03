@@ -18,12 +18,14 @@ for i in xrange(G):
 
 print passion
 
+
 D =int(raw_input())
 for el in xrange(D):
     d1 = map(str,raw_input().split(" "))
+    candidateD.append(d1)
     for el in d1[4:]:
       if el in passion:
-        verpassion[el] += 1
+        verpassion[indexOf(d1, candidateD)] += 1
         candidateD.append(d1[0:3])
 
 
