@@ -21,27 +21,37 @@ def prim(edges,start):
   q = [(0,start)]
   print parent
   print key
+  visited.append(start)
+  key[start] = float("inf")
   while (q):
     print "qqqqqqqqqqqqq",q
     cost,v1 = heappop(q)
-    if v1 == "":
-      return cost
+    print cost,v1
     _min = float("inf")
     pushnode = ""
-    print "v1",v1
-    print "cost",cost
+    print "cost, " ,cost, "v1 the CURRRRRRRRRRRent Node",v1
     for c, v2 in g.get(v1, ()):
       if v2 not in visited and c < key[v2]:
-        visited.append(v2)
         key[v2] = c
         parent[v2] = v1
-        if c < _min:
-          _min = c
-          pushnode = v2
-    heappush(q, (cost+c, pushnode))
+    for el in key.keys():
+        if el not in visited:
+          temp = key.values()[key.keys().index(el)]
+          if temp < _min:
+            _min = temp
+    pushnode = key.keys()[key.values().index(_min)]
+    print "ey.values()",key
+    print "parent.keys()",parent.keys()
+    print "visited",visited
+    print "pushnode",pushnode
+    if v1 == "":
+      return cost
+    if pushnode not in visited:
+      visited.append(pushnode)
+      print "heappush", cost,"+",key[pushnode]," ->",cost+key[pushnode], pushnode
+      heappush(q, (cost+key[pushnode], pushnode))
+
   #return cost
-
-
 
 
 def main():
