@@ -15,7 +15,7 @@ def prim(edges,start):
   visited =[]
   parent = {}
   key = {}
-  for i in range(length(g.items())):
+  for i in range(len(g.items())):
     parent[g.items()[i][0]] = None
     key[g.items()[i][0]] = float("inf")
   q, seen = [(0,start)], set()
@@ -25,6 +25,7 @@ def prim(edges,start):
     cost,v1 = heappop(q)
     _min = float("inf")
     pushnode = ""
+    print g.get[v1]
     for c, v2 in g.get(v1, ()):
       if v2 not in visited and c < key[v2]:
         key[v2] = c

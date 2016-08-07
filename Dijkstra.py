@@ -29,11 +29,12 @@ def dijkstra(edges, f, t):
             d = OrderedDict(sorted(visited.items(), key=itemgetter(1)))
             print d
             print "add unvisited nodes",v1
-               
+
             print "//////////////before path",path
             path = (v1, path)
             print "/////////////////////after path",path
             if v1 == t: return (cost, path)
+            print "-----------------------------------------------------------------------------------------",g
             print "////////////////g.get(v1/A,())////////////////////",g.get(v1,())
             for c, v2 in g.get(v1, ()):
                 print "addddddddditional cooooooooooooooooooost",c
