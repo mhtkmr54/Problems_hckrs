@@ -18,6 +18,8 @@ private:
   void AddLeafPrivate(int key, node* Ptr);
   void PrintInorderPrivate(node* Ptr);
   node* ReturnNodePrivate(int key, node* Ptr);
+  int FindSmallestPrivate(node* Ptr);
+
 
 
 public:
@@ -28,6 +30,7 @@ public:
    void PrintInorder();
    int ReturnRootKey();
    void PrintChildren(int key);
+   int FindSmallest();
 
 
 };
@@ -170,6 +173,55 @@ void BST::PrintChildren(int key)
 }
 
 
+int BST::FindSmallest()
+{
+   FindSmallestPrivate(root);
+}
+
+int BST::FindSmallestPrivate(node* Ptr)
+{
+   if (root == NULL)
+   {
+    cout << "No Tree made";
+    return -1000;
+   }
+
+
+    if (Ptr->left != NULL)
+    {
+     FindSmallestPrivate(Ptr->left);
+    }
+    else
+    {
+    cout<<"Smallest is " << Ptr->data <<endl;
+    return Ptr->data;
+    }
+
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 int main(){
   int TreeKeys[16] = {50,76,21,4,32,64,15,52,14,100,83,2,3,70,87,80};
@@ -195,6 +247,7 @@ int main(){
   }
   cout << "\n";
   cout << "\n";
+  cout<< myTree.FindSmallest();
+  cout << "\n";
   return 0;
-
 }
