@@ -17,10 +17,13 @@ private:
   node* root;
   void AddLeafPrivate(int key, node* Ptr);
   void PrintInorderPrivate(node* Ptr);
+  node* ReturnNodePrivate(int key, node* Ptr);
+
 
 public:
    BST();
    node* CreateLeaf(int key);
+   node* ReturnNode(int key);
    void AddLeaf(int key);
    void PrintInorder();
 
@@ -101,6 +104,35 @@ void BST::PrintInorderPrivate(node* Ptr){
 
 }
 
+ BST::node* BST::ReturnNode(int key)
+ {
+   return ReturnNodePrivate(key, root);
+ }
+
+  BST::node* BST::ReturnNodePrivate(int key, node* Ptr)
+ {
+   if (Ptr != NULL)
+   {
+      if(Ptr->data == key)
+      {
+        return Ptr;
+      }
+      else{
+        if(Ptr->data < key)
+          {
+           return ReturnNodePrivate(key, Ptr->left);
+          }
+        if(Ptr->data > key)
+          {
+           return ReturnNodePrivate(key, Ptr->right);
+          }
+      }
+   }
+   else
+   {
+     return NULL;
+   }
+ }
 
 
 
