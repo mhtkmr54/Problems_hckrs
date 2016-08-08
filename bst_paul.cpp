@@ -26,6 +26,8 @@ public:
    node* ReturnNode(int key);
    void AddLeaf(int key);
    void PrintInorder();
+   int ReturnRootKey();
+   void PrintChildren(int key);
 
 
 };
@@ -111,18 +113,20 @@ void BST::PrintInorderPrivate(node* Ptr){
 
   BST::node* BST::ReturnNodePrivate(int key, node* Ptr)
  {
+   //cout<<"PTR data" << Ptr->data << "And Key to find-- "<< key << endl;
    if (Ptr != NULL)
    {
       if(Ptr->data == key)
       {
         return Ptr;
+        //cout<<"PTR" << key << endl;
       }
       else{
-        if(Ptr->data < key)
+        if(key < Ptr->data)
           {
            return ReturnNodePrivate(key, Ptr->left);
           }
-        if(Ptr->data > key)
+        if(key > Ptr->data)
           {
            return ReturnNodePrivate(key, Ptr->right);
           }
@@ -133,6 +137,37 @@ void BST::PrintInorderPrivate(node* Ptr){
      return NULL;
    }
  }
+
+
+int BST::ReturnRootKey(){
+  if (root!= NULL)
+  {
+     return root->data;
+  }
+  else
+  {
+     return -1000;
+  }
+}
+
+
+
+void BST::PrintChildren(int key)
+{
+   node* Ptr = ReturnNode(key);
+   if (Ptr != NULL)
+   {
+     Ptr->left == NULL ?  //Conditional Operator
+     cout<<"Left Child = NULL\n"  :
+     cout<<"Left Child = "<< Ptr->left->data <<endl;
+     Ptr->right == NULL ?  //Conditional Operator
+     cout<<"right Child = NULL\n" :
+     cout<<"right Child = "<< Ptr->right->data <<endl;
+   }
+   else{
+    cout << "Dude Where is the " << key << " " ;
+   }
+}
 
 
 
@@ -149,7 +184,17 @@ int main(){
 
   cout << "Printing the tree in order\n AFTER adding no.\n";
   myTree.PrintInorder();
+  cout << "\n";
 
+  for (int j = 0; j < 16; j++)
+  {
+    cout<<"Treekey PArent "<<TreeKeys[j];
+    cout<<endl;
+    myTree.PrintChildren(TreeKeys[j]);
+    cout<<endl;
+  }
+  cout << "\n";
+  cout << "\n";
   return 0;
 
 }
