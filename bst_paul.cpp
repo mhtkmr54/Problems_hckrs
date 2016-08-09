@@ -19,6 +19,7 @@ private:
   void PrintInorderPrivate(node* Ptr);
   node* ReturnNodePrivate(int key, node* Ptr);
   int FindSmallestPrivate(node* Ptr);
+  void RemoveNodePrivate(int key, node* Ptr);
 
 
 
@@ -31,6 +32,7 @@ public:
    int ReturnRootKey();
    void PrintChildren(int key);
    int FindSmallest();
+   void RemoveNode(int key);
 
 
 };
@@ -199,9 +201,32 @@ int BST::FindSmallestPrivate(node* Ptr)
 
    }
 
+void BST::RemoveNodePrivate(int key)
+{
+   RemoveNodePrivate(key,root);
+}
 
 
 
+void BST::RemoveNodePrivate(int key,node* Ptr)
+{
+  if (root != NULL)
+  {
+   if (root->key == key)
+   {
+     RemoveRootMatch();
+   }
+   else{
+    if (key <  parent->key && parent->left != NULL)
+    {
+       parent->left->key == key?
+    }
+   }
+  }
+  else{
+    cout<<"tree is empty";
+  }
+}
 
 
 
