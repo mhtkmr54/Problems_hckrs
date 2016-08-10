@@ -19,10 +19,7 @@ def min_cuts(a,cut):
         oldmaxi = a.index(max(a))
         diff = (max(a) - 0.5*(sum(a)))*2
         a[a.index(max(a))] -= diff
-        if a.index(max(a)) == oldmaxi:
-            cut += 1
-            return cut
-        else:
-            min_cuts(a)
+        min_cuts(a)
             
-print min_cuts(a,cut)
+print min_cuts(a,cut) 
+
